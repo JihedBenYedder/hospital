@@ -10,7 +10,7 @@ phases:
       - apt-get install -y maven
   build:
     commands:
-      - echo building Mudoku-webapp
+      - echo building Hospital MS
       - mvn install
 artifacts:
   files:
