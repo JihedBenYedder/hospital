@@ -9,6 +9,7 @@ ENV JAVA_OPTS ""
 
 EXPOSE 8080
 
+
 WORKDIR /opt/app
 
 RUN chmod +x /opt/app/entrypoint.sh
