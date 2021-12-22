@@ -12,6 +12,8 @@ phases:
     commands:
       - echo building Hospital MS
       - mvn install
+      - echo launching integration tests on Hospital MS
+      - mvn test
 artifacts:
   files:
     - target/*.jar
