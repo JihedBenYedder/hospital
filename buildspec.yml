@@ -14,8 +14,7 @@ phases:
       - mvn install
 artifacts:
   files:
-    - target/*.war
-    - target/dependency/webapp-runner.jar
+    - target/*.jar
     - scripts/*.sh
     - appspec.yml
   discard-paths: yes
