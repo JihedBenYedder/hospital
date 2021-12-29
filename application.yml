@@ -13,7 +13,7 @@ spec:
         app: hospitalms
     spec:
       containers:
-        - name: hospitalMs
+        - name: hospitalms
           image: alpharepo/hospitalms:latest
           ports:
             - containerPort: 8080
