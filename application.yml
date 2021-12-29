@@ -13,7 +13,7 @@ spec:
         app: hospitalMs
     spec:
       containers:
-        - name: springboot
+        - name: hospitalMs
           image: alpharepo/hospitalms:latest
           ports:
             - containerPort: 8080
