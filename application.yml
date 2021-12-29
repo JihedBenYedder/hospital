@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hospitalMs
+  name: hospitalms
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hospitalMs
+      app: hospitalms
   template:
     metadata:
       labels:
-        app: hospitalMs
+        app: hospitalms
     spec:
       containers:
         - name: hospitalMs
