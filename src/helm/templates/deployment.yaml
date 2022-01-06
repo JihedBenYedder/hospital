@@ -10,7 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      {{- include "hospitalms.selectorLabels" . | nindent 6 }}
+      app: {{- include "hospitalms.selectorLabels" . }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
