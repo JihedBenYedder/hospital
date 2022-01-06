@@ -39,12 +39,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /hospital/actuator/health
-              port: http
+              port: 8080
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
               path: /hospital/actuator/health
-              port: http
+              port: 8080
             initialDelaySeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
