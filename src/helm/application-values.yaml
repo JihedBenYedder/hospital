@@ -26,13 +26,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: NodePort
-  ports:  
-  - name: http
-    port: 80
-    targetPort: 80
-    nodePort: 30036
-    protocol: TCP
+  type: ClusterIP
+  port: 8080
 
 
 resources: {}
