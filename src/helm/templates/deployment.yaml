@@ -38,16 +38,19 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              host:
               path: /hospital/actuator/health
-              port: 8080
+              port: http
+            initialDelaySeconds: 30
+            failureThreshold: 30
+            periodSeconds: 10
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
-              host:
               path: /hospital/actuator/health
-              port: 8080
-            initialDelaySeconds: 10
+              port: http
+            initialDelaySeconds: 30
+            failureThreshold: 30
+            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
