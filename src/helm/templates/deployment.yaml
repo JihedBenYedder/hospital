@@ -38,16 +38,16 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /hospital/actuator/health
-              port: http
+              port: 8080
+              path: /
             initialDelaySeconds: 30
             failureThreshold: 30
             periodSeconds: 10
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
-              path: /hospital/actuator/health
-              port: http
+              path: /health
+              port: 8080
             initialDelaySeconds: 30
             failureThreshold: 30
             periodSeconds: 10
