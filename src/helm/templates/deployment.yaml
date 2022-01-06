@@ -38,11 +38,13 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
+              host:
               path: /hospital/actuator/health
               port: 8080
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
+              host:
               path: /hospital/actuator/health
               port: 8080
             initialDelaySeconds: 10
