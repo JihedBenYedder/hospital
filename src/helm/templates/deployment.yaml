@@ -39,14 +39,14 @@ spec:
           livenessProbe:
             httpGet:
               port: 8080
-              path: /
+              path: /hospital/
             initialDelaySeconds: 30
             failureThreshold: 30
             periodSeconds: 10
             initialDelaySeconds: 10
           readinessProbe:
             httpGet:
-              path: /health
+              path: /hospital/health
               port: 8080
             initialDelaySeconds: 30
             failureThreshold: 30
