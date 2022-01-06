@@ -1,0 +1,6 @@
+version: v1
+server:
+  port: 8080
+  servlet:
+    context-path: /hospital/
+    application-display-name: hospital-management
