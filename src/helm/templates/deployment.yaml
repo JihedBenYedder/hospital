@@ -38,7 +38,7 @@ spec:
               hostPort: 8080
           livenessProbe:
             httpGet:
-              port: 80
+              port: 8080
               path: /
             initialDelaySeconds: 60
             periodSeconds: 10
