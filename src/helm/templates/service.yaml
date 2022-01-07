@@ -11,7 +11,7 @@ metadata:
       kind:  Mapping
       name:  hospitalms_dev_mapping
       prefix: /hospitalms/
-      service: hospitalms
+      service: hospitalms:8080
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -20,7 +20,7 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "hospitalms.selectorLabels" . | nindent 4 }}
+    app: {{ include "hospitalms.name" . }}
 
 
     
