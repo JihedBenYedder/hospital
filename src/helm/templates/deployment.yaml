@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "hospitalms.fullname" . }}
+  name: hospitalms
   labels:
-    {{- include "hospitalms.labels" . | nindent 4 }}
+    app: hospitalms
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}

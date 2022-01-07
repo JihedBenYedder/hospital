@@ -1,17 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "hospitalms.name" . }}
-  labels:
-    run: {{include "hospitalms.name" .}}
+  name: hospitalms
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind:  Mapping
+      name:  nginx_dev_mapping
+      prefix: /hospitalms/
+      service: hospitalms
 spec:
-  type: {{ .Values.service.type }}
-  ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
   selector:
-    {{- include "hospitalms.selectorLabels" . | nindent 4 }}
+    app: hospitalms
+  ports:
+  - port: 80
+    name: hospitalms
+    targetPort: http
 
     
