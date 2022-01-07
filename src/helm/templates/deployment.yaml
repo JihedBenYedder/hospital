@@ -39,13 +39,13 @@ spec:
           livenessProbe:
             httpGet:
               port: http
-              path: /
+              path: /hospital/v1/actuator/health
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
             httpGet:
               port: http
-              path: /
+              path: /hospital/v1/actuator/health
             initialDelaySeconds: 10
             periodSeconds: 10
           resources:
