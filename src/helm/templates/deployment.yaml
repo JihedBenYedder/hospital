@@ -38,13 +38,13 @@ spec:
             containerPort: 8080
           livenessProbe:
             httpGet:
-              port: http
+              port: 8080
               path: /hospital/actuator/health
             initialDelaySeconds: 10
             periodSeconds: 5
           readinessProbe:
             httpGet:
-              port: http
+              port: 8080
               path: /hospital/actuator/health
             initialDelaySeconds: 10
             periodSeconds: 10
