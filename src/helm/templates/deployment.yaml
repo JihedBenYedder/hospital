@@ -40,8 +40,11 @@ spec:
             httpGet:
               port: 8080
               path: /
-            initialDelaySeconds: 60
-            periodSeconds: 10
+            initialDelaySeconds: 120
+            timeoutSeconds: 3
+            periodSeconds: 30
+            successThreshold: 1
+            failureThreshold: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
