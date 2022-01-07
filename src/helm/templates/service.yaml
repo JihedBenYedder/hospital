@@ -20,6 +20,6 @@ spec:
       protocol: TCP
       name: {{ include "hospitalms.name" . }}
   selector:
-    matchLabels:
-      app: hospitalms
+    app: {{ include "hospitalms.name" . }}
+
     
