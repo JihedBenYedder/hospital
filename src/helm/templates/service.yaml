@@ -4,14 +4,22 @@ metadata:
   name: {{ include "hospitalms.name" . }}
   labels:
     run: {{include "hospitalms.name" .}}
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind:  Mapping
+      name:  hospitalms_dev_mapping
+      prefix: /hospital/
+      service: hospitalms:8080
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
-      name: http
+      name: {{ include "hospitalms.name" . }}
   selector:
-    {{- include "hospitalms.selectorLabels" . | nindent 4 }}
-
+    matchLabels:
+      app: hospitalms
     
