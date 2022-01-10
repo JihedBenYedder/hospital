@@ -4,7 +4,6 @@ metadata:
   name: {{ include "hospitalms.fullname" . }}
   labels:
     {{- include "hospitalms.labels" . | nindent 4 }}
-    app.kubernetes.io/name: hospitalms
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
