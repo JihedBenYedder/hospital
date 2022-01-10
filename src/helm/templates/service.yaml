@@ -20,6 +20,6 @@ spec:
       protocol: TCP
       name: {{ include "hospitalms.name" . }}
   selector:
-    app.kubernetes.io/name: dev
+    app.kubernetes.io/name: default
 
     
