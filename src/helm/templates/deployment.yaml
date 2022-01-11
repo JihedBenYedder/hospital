@@ -17,8 +17,6 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      labels:
-        app.kubernetes.io/name: hospitalms
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
