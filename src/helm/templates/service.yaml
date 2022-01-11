@@ -5,13 +5,13 @@ metadata:
   labels:
     run: {{include "hospitalms.name" .}}
   annotations:
-    getambassador.io/config: |
-      ---
-      apiVersion: ambassador/v0
-      kind:  Mapping
-      name:  hospitalms_dev_mapping
-      prefix: /hospital/
-      service: hospitalms.default:8080
+ #   getambassador.io/config: |
+  #    ---
+  #    apiVersion: ambassador/v0
+   #   kind:  Mapping
+    #  name:  hospitalms_dev_mapping
+     # prefix: /hospital/
+      #service: hospitalms.default:8080
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -20,6 +20,6 @@ spec:
       protocol: TCP
       name: {{ include "hospitalms.name" . }}
   selector:
-    app.kubernetes.io/name: default
+    app: hospitalms
 
     
