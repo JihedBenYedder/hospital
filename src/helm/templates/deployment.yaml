@@ -17,6 +17,8 @@ spec:
       annotations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      labels:
+        app: hospitalms
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
