@@ -10,7 +10,7 @@ spec:
   {{- end }}
   selector:
     matchLabels:
-      app.kubernetes.io/name: hospitalms
+      app: hospitalms
   template:
     metadata:
       {{- with .Values.podAnnotations }}
