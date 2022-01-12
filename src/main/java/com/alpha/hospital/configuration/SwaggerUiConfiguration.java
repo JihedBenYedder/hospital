@@ -20,8 +20,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@EnableWebMvc
-public class SwaggerUiConfiguration implements WebMvcConfigurer {
+public class SwaggerUiConfiguration {
     private String version;
 
     public SwaggerUiConfiguration(@Value("${version}") String version) {
@@ -47,12 +46,4 @@ public class SwaggerUiConfiguration implements WebMvcConfigurer {
                 .build();
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
-
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
 }
