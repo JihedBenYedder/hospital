@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: 117677030399.dkr.ecr.us-east-2.amazonaws.com/alpharepo
-  tag: ((.Env.DOCKER_IMAGE_TAG))
+  tag: latest
   pullPolicy: Always
 
 imagePullSecrets: 
