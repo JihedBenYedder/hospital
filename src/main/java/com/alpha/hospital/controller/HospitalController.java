@@ -15,7 +15,7 @@ public class HospitalController {
         this.hospitalService = hospitalService;
     }
 
-    @GetMapping(value = "/beds/total")
+    @GetMapping(value = "/beds/totals")
     public int getBedsTotalNumber() {
         return hospitalService.getBedsTotalNumber();
     }
