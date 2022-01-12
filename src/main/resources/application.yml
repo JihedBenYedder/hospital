@@ -4,3 +4,9 @@ server:
   servlet:
     context-path: /hospital/
     application-display-name: hospital-management
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /doc/v2/api-docs
