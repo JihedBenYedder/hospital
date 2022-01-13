@@ -20,7 +20,7 @@ public class HospitalController {
         return hospitalService.getBedsTotalNumber();
     }
 
-    @GetMapping(value = "/beds/occupie")
+    @GetMapping(value = "/beds/occupied")
     public int getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
     }

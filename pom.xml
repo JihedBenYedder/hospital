@@ -30,6 +30,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
+		<project.version>Baeldung</project.version>
 	</properties>
 	<dependencies>
 		<!-- spring -->
@@ -75,6 +76,22 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.kiwigrid</groupId>
+				<artifactId>helm-maven-plugin</artifactId>
+				<version>5.7</version>
+				<configuration>
+					<chartDirectory>${project.basedir}</chartDirectory>
+					<chartVersion>${project.version}</chartVersion>
+					<helmVersion>3.2.0</helmVersion>
+					<values>
+						<overrides>
+							<component1.install.path>/opt/component1</component1.install.path>
+						</overrides>
+						<yamlFile>${project.basedir}/src/helm/Chart.yaml</yamlFile>
+					</values>
+				</configuration>
 			</plugin>
 		</plugins>
 
