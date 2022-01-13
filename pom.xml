@@ -84,7 +84,8 @@
 				<configuration>
 					<chartDirectory>${project.basedir}</chartDirectory>
 					<chartVersion>${project.version}</chartVersion>
-					<helmVersion>3.2.0</helmVersion>
+					<useLocalHelmBinary>true</useLocalHelmBinary>
+					<autoDetectLocalHelmBinary>true</autoDetectLocalHelmBinary>
 					<values>
 						<overrides>
 							<component1.install.path>/opt/component1</component1.install.path>
