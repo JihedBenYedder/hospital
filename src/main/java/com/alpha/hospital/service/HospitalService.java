@@ -8,7 +8,7 @@ public class HospitalService {
 
 
     public int getBedsTotalNumber() {
-        return 10;
+        return 1;
     }
 
     public int getOccupiedBedsNumber() {
