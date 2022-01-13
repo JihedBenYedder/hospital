@@ -15,6 +15,18 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
+	<developers>
+		<developer>
+			<id>Djo</id>
+			<name>Jihed Ben</name>
+			<email>djo@example.com</email>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+
 	<properties>
 		<java.version>11</java.version>
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
@@ -58,7 +70,20 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>fabric8-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>resource</goal>
+							<goal>helm</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
+
 	</build>
 
 </project>
