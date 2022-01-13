@@ -62,6 +62,12 @@
 			<version>${springfox.swagger.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.kiwigrid</groupId>
+			<artifactId>helm-maven-plugin</artifactId>
+			<version>5.7</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -69,18 +75,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>fabric8-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>resource</goal>
-							<goal>helm</goal>
-						</goals>
-					</execution>
-				</executions>
 			</plugin>
 		</plugins>
 
