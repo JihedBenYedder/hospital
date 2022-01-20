@@ -12,7 +12,7 @@
 	
 	<groupId>com.alpha</groupId>
 	<artifactId>hospital</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
@@ -63,6 +63,14 @@
 			<version>${springfox.swagger.version}</version>
 		</dependency>
 
+		<!-- cache dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+		</dependency>
+
+
+		<!-- helm plugins -->
 		<dependency>
 			<groupId>com.kiwigrid</groupId>
 			<artifactId>helm-maven-plugin</artifactId>

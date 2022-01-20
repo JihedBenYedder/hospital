@@ -54,3 +54,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+redis_host: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
+redis_port: 6379
+

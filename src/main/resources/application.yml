@@ -24,4 +24,3 @@ redis:
   commandTimeout: 40000
   minEvictableIdleTimeMillis: 60000
   timeBetweenEvictionRunsMillis: 30000
-  lettuceActivated: true

@@ -1,9 +1,9 @@
 package com.alpha.hospital.controller;
 
+import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.service.HospitalService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/")
@@ -16,13 +16,23 @@ public class HospitalController {
     }
 
     @GetMapping(value = "/beds/total")
-    public int getBedsTotalNumber() {
-        return hospitalService.getBedsTotalNumber();
+    public Mono<String> getTotalBedsNumber() {
+        return hospitalService.getTotalBedsNumber();
     }
 
     @GetMapping(value = "/beds/occupied")
-    public int getOccupiedBedsNumber() {
+    public Mono getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
+    }
+
+    @PutMapping(value = "/beds/total")
+    public Mono setTotalBedsNumber(@RequestParam Integer totalBedsNumber) {
+        return hospitalService.setTotalBedsNumber(totalBedsNumber);
+    }
+
+    @PutMapping(value = "/beds/occupied")
+    public Mono setOccupiedBedsNumber(@RequestParam Integer occupiedBedsNumber) {
+        return hospitalService.setOccupiedBedsNumber(occupiedBedsNumber);
     }
 
 
