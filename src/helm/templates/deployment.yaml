@@ -11,10 +11,6 @@ spec:
   selector:
     matchLabels:
       app: hospitalms
-  volumes:
-    - name: config
-      configMap:
-        name: "{{ .Release.Name }}-configmap-file"
   template:
     metadata:
       {{- with .Values.podAnnotations }}
