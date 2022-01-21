@@ -23,7 +23,7 @@ data:
           enabled: false
     
     redis:
-      host: {{ .Values.redis_host }}
-      port: {{ .Values.redis_port }}
-      password: {{ .Values.redis_password }}
+      host: {{ .Values.redis.host }}
+      port: {{ .Values.redis.port }}
+      password: {{ .Values.redis.password }}
     
