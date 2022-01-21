@@ -25,13 +25,5 @@ data:
     redis:
       host: {{ .Values.redis_host }}
       port: {{ .Values.redis_port }}
-      index: {{ .Values.redis_index }}
       password: {{ .Values.redis_password }}
-      ssl: {{ .Values.redis_ssl }}
-      maxTotalConnections: {{ .Values.redis_maxtotalconns }}
-      minIdleConnections: {{ .Values.redis_minidleconns }}
-      maxIdleConnections: {{ .Values.redis_maxidleconns }}
-      connectionTimeout: {{ .Values.redis_connectiontimeout }}
-      commandTimeout: {{ .Values.redis_commandtimeout }}
-      minEvictableIdleTimeMillis: {{ .Values.redis_minEvictableIdleTimeMillis }}
-      timeBetweenEvictionRunsMillis: {{ .Values.redis_timeBetweenEvictionRunsMillis }}
+    
