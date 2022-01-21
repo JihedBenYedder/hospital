@@ -15,12 +15,3 @@ redis:
   host: 127.0.0.1
   port: 6379
   password: password
-  index: 0
-  ssl: true
-  maxtotalconns: 16
-  minidleconns: 4
-  maxidleconns: 16
-  connectiontimeout: 15000
-  commandTimeout: 40000
-  minEvictableIdleTimeMillis: 60000
-  timeBetweenEvictionRunsMillis: 30000
