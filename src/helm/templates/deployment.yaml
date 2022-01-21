@@ -22,10 +22,6 @@ spec:
       annotations:
         checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
     spec:
-      volumes:
-        - name: config
-          configMap:
-            name: "{{ .Release.Name }}-configmap-file"
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -56,9 +52,13 @@ spec:
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          volumeMounts:
+          volumes:
             - name: config
               mountPath: /configmaps
+      volumes:
+        - name: config
+          configMap:
+            name: "{{ .Release.Name }}-configmap-file"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

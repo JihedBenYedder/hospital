@@ -23,7 +23,7 @@ data:
           enabled: true
     
     redis:
-      host: {{ pluck .Values.global.env .Values.redis.host | quote }}
-      port: {{ pluck .Values.global.env .Values.redis.port | quote }}
-      password: {{ pluck .Values.global.env .Values.redis.password | quote }}
+      host: {{ .Values.redis.host }}
+      port: {{ .Values.redis.port }}
+      password: {{ .Values.redis.password }}
     
