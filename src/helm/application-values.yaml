@@ -60,5 +60,7 @@ redis:
     dev: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
   port:
     dev: 6379
+  password:
+    dev:   
   
 
