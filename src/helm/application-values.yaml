@@ -56,6 +56,9 @@ tolerations: []
 affinity: {}
 
 redis:
-  host: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
-  port: 6379
+  host:
+    dev: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
+  port:
+    dev: 6379
+  
 
