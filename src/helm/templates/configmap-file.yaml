@@ -8,22 +8,9 @@ metadata:
     release: {{ .Release.Name }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 data:
-  application.yml: |
-    version: v1
-    server:
-      max-http-header-size: 20KB
-      port: 8080
-      servlet:
-        context-path: /hospital
-        application-display-name: hospital-management
+{{- range $name, $config := .Values.myconfig }}
+  {{ $name }}: |-
+{{ tpl $config $ | indent 4 }}
+  {{- end }}
 
-    management:
-      health:
-        redis:
-          enabled: true
-    
-    redis:
-      host: {{ .Values.redis.host }}
-      port: {{ .Values.redis.port }}
-      password: {{ .Values.redis.password }}
     
