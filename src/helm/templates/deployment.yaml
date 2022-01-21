@@ -20,6 +20,10 @@ spec:
       labels:
         app: hospitalms
     spec:
+      volumes:
+        - name: config
+          configMap:
+            name: "{{ .Release.Name }}-configmap-file"
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
@@ -50,6 +54,9 @@ spec:
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: config
+              mountPath: /configmaps
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
