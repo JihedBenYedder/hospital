@@ -20,10 +20,10 @@ data:
     management:
       health:
         redis:
-          enabled: false
+          enabled: true
     
     redis:
-      host: {{ pluck .Values.global.env .Values.redis_host | quote }}
-      port: {{ pluck .Values.global.env .Values.redis_port | quote }}
-      password: {{ pluck .Values.global.env .Values.redis_password | quote }}
+      host: {{ pluck .Values.global.env .Values.redis.host | quote }}
+      port: {{ pluck .Values.global.env .Values.redis.port | quote }}
+      password: {{ pluck .Values.global.env .Values.redis.password | quote }}
     

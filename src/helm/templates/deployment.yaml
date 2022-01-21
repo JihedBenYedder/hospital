@@ -19,6 +19,8 @@ spec:
       {{- end }}
       labels:
         app: hospitalms
+      annotations:
+        checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
     spec:
       volumes:
         - name: config
