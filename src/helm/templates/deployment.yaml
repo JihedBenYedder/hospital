@@ -55,10 +55,11 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /configmaps
+              subPath: "application.yml"
       volumes:
         - name: config
           configMap:
-            name: "{{ .Release.Name }}-configmap-file"
+            name: {{ .Release.Name }}-configmap-file
             items:
             - key: "application.yml"
               path: "application.yml"
