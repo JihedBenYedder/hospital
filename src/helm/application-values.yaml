@@ -59,5 +59,8 @@ redis:
   host: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
   port: 6379
   password: pppp  
+
+java_opts: "-Dspring.config.location=/opt/application.yml"
+
   
 
