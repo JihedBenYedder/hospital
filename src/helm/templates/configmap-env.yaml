@@ -9,5 +9,5 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 data:
   # Java Opts values
-  JAVA_OPTS: "{{ .Values.java_opts }} -XX:MaxRAMPercentage=50 -XX:+PrintFlagsFinal"
+  JAVA_OPTS: "{{ .Values.java_opts }}"
 
