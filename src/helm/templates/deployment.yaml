@@ -59,6 +59,9 @@ spec:
         - name: config
           configMap:
             name: "{{ .Release.Name }}-configmap-file"
+            items:
+            - key: "application.yml"
+              path: "application.yml"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
