@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ls -l
-java -jar app.jar
+java  ${JAVA_OPTS} -jar app.jar

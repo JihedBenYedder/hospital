@@ -60,7 +60,7 @@ redis:
   port: 6379
   password: pppp  
 
-
+java_opts: -Dspring.config.location=/opt/conf/application.yml
 
   
 
