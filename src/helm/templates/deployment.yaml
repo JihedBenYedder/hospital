@@ -34,6 +34,9 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: JAVA_OPTS
+              value: "-Dspring.config.location=/opt/config"
           ports:
           - name: http
             protocol: TCP
@@ -53,16 +56,12 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: config
-              mountPath: /configmaps
-              subPath: "application.yml"
+            - name: {{ .Release.Name }}-configmap-file
+              mountPath: /opt/config
       volumes:
-        - name: config
+        - name: {{ .Release.Name }}-configmap-file
           configMap:
             name: {{ .Release.Name }}-configmap-file
-            items:
-            - key: "application.yml"
-              path: "application.yml"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
