@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ls -l
-java  ${JAVA_OPTS} -jar app.jar
+java  -Dspring.config.location=/opt/conf/application.yml -jar app.jar
