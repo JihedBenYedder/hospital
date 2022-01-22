@@ -34,9 +34,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            - name: JAVA_OPTS
-              value: "-Dspring.config.location=/opt/config/application.yml"
+
           ports:
           - name: http
             protocol: TCP
