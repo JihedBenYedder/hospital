@@ -52,6 +52,9 @@ spec:
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-configmap-env
           volumeMounts:
             - name: {{ .Release.Name }}-configmap-file
               mountPath: /opt/config
