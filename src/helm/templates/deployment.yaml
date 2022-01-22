@@ -54,7 +54,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: {{ .Release.Name }}-configmap-file
-              mountPath: /opt/
+              mountPath: /opt/config
       volumes:
         - name: {{ .Release.Name }}-configmap-file
           configMap:
