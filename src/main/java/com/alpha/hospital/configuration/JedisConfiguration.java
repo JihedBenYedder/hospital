@@ -35,7 +35,7 @@ public class JedisConfiguration {
     public RedisConfiguration defaultRedisConfig(RedisProperties redisProperties) {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
         config.setHostName(redisProperties.getHost());
-     //   config.setPassword(RedisPassword.of(redisProperties.getPassword()));
+        config.setPassword(RedisPassword.of(redisProperties.getPassword()));
         return config;
     }
 

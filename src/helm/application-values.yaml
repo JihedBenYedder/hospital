@@ -57,7 +57,7 @@ affinity: {}
 
 redis:
   host: redis2.aysdzx.ng.0001.use2.cache.amazonaws.com
-  password: pppp  
+  password: 52OCX7b1PbYfwMoD  
 
 java_opts: -Dspring.config.location=/opt/config/application.yml
 
