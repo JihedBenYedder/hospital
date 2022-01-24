@@ -56,7 +56,7 @@ tolerations: []
 affinity: {}
 
 redis:
-  host: redis2.aysdzx.ng.0001.use2.cache.amazonaws.com
+  host: master.redis-ssl.aysdzx.use2.cache.amazonaws.com
   password: 52OCX7b1PbYfwMoD  
 
 java_opts: -Dspring.config.location=/opt/config/application.yml
