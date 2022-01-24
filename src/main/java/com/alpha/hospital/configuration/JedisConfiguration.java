@@ -26,7 +26,7 @@ public class JedisConfiguration {
     @Primary
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory(RedisConfiguration defaultRedisConfig) {
         LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
-                .useSsl().and()
+              //.useSsl().and()
                 .commandTimeout(Duration.ofMillis(60000)).build();
         return new LettuceConnectionFactory(defaultRedisConfig, clientConfig);
     }
