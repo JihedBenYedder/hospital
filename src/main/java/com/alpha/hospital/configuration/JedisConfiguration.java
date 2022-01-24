@@ -5,10 +5,8 @@ import io.lettuce.core.cluster.ClusterClientOptions;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisClusterConfiguration;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.connection.*;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
@@ -25,10 +23,20 @@ import java.time.Duration;
 public class JedisConfiguration {
 
     @Bean
-    public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory(RedisProperties redisProperties) {
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisProperties.getHost(), redisProperties.getPort());
-        redisStandaloneConfiguration.setPassword(redisProperties.getPassword());
-        return new LettuceConnectionFactory(redisStandaloneConfiguration);
+    @Primary
+    public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory(RedisConfiguration defaultRedisConfig) {
+        LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
+                .useSsl().and()
+                .commandTimeout(Duration.ofMillis(60000)).build();
+        return new LettuceConnectionFactory(defaultRedisConfig, clientConfig);
+    }
+
+    @Bean
+    public RedisConfiguration defaultRedisConfig(RedisProperties redisProperties) {
+        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
+        config.setHostName(redisProperties.getHost());
+     //   config.setPassword(RedisPassword.of(redisProperties.getPassword()));
+        return config;
     }
 
 
