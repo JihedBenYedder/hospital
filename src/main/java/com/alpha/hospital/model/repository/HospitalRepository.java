@@ -1,11 +1,11 @@
 package com.alpha.hospital.model.repository;
 
+import com.alpha.hospital.model.dto.HospitalData;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
 
 public interface HospitalRepository {
-    Mono save(String id, String value);
-    Mono<String> find(String id);
+    Mono save(String id, HospitalData value);
+    Mono<HospitalData> find(String id);
     void delete(String id);
 }

@@ -1,27 +1,26 @@
 package com.alpha.hospital.model.repository;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.alpha.hospital.model.dto.HospitalData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
-import java.util.Optional;
-import java.util.TimeZone;
+import javax.annotation.Resource;
 
 @Repository
 public class HospitalRepositoryImpl implements HospitalRepository {
 
-    @Autowired
-    private ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
+    @Resource
+    private ReactiveRedisTemplate<String, HospitalData> reactiveRedisTemplate;
 
     @Override
-    public Mono save(String id, String value) {
-        return reactiveRedisTemplate.opsForValue().set(id, value);
+    public Mono save(String id, HospitalData value) {
+        return reactiveRedisTemplate.opsForValue().set("hospitalData", value);
     }
 
     @Override
-    public Mono<String> find(String id) {
+    public Mono<HospitalData> find(String id) {
         return reactiveRedisTemplate.opsForValue().get(id);
     }
 

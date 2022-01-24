@@ -2,6 +2,7 @@ package com.alpha.hospital.controller;
 
 import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.service.HospitalService;
+import io.swagger.models.auth.In;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
@@ -16,24 +17,18 @@ public class HospitalController {
     }
 
     @GetMapping(value = "/beds/total")
-    public Mono<String> getTotalBedsNumber() {
+    public Mono<Integer> getTotalBedsNumber() {
         return hospitalService.getTotalBedsNumber();
     }
 
     @GetMapping(value = "/beds/occupied")
-    public Mono getOccupiedBedsNumber() {
+    public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
     }
 
-    @PutMapping(value = "/beds/total")
-    public Mono setTotalBedsNumber(@RequestParam Integer totalBedsNumber) {
-        return hospitalService.setTotalBedsNumber(totalBedsNumber);
+    @PutMapping(value = "/data")
+    public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
+        return hospitalService.setHospitalData(hospitalData);
     }
-
-    @PutMapping(value = "/beds/occupied")
-    public Mono setOccupiedBedsNumber(@RequestParam Integer occupiedBedsNumber) {
-        return hospitalService.setOccupiedBedsNumber(occupiedBedsNumber);
-    }
-
 
 }

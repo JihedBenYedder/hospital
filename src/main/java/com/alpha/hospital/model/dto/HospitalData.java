@@ -1,23 +1,28 @@
 package com.alpha.hospital.model.dto;
 
-public class HospitalData {
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-    private int totalBedsNumber;
-    private int occupiedBedsNumber;
+import java.io.Serializable;
 
-    public int getTotalBedsNumber() {
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class HospitalData implements Serializable {
+
+    private Integer totalBedsNumber;
+    private Integer occupiedBedsNumber;
+
+    public Integer getTotalBedsNumber() {
         return totalBedsNumber;
     }
 
-    public void setTotalBedsNumber(int totalBedsNumber) {
+    public void setTotalBedsNumber(Integer totalBedsNumber) {
         this.totalBedsNumber = totalBedsNumber;
     }
 
-    public int getOccupiedBedsNumber() {
+    public Integer getOccupiedBedsNumber() {
         return occupiedBedsNumber;
     }
 
-    public void setOccupiedBedsNumber(int occupiedBedsNumber) {
+    public void setOccupiedBedsNumber(Integer occupiedBedsNumber) {
         this.occupiedBedsNumber = occupiedBedsNumber;
     }
 }
