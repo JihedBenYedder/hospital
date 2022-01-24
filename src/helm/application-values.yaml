@@ -56,7 +56,7 @@ tolerations: []
 affinity: {}
 
 redis:
-  host: hospitalredis.aysdzx.ng.0001.use2.cache.amazonaws.com
+  host: hospitalredis1.aysdzx.ng.0001.use2.cache.amazonaws.com
   port: 6379
   password: pppp  
 
