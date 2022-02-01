@@ -16,7 +16,6 @@ spec:
       annotations:
         checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
     spec:
-      serviceAccountName: default
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
