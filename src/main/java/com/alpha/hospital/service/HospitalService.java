@@ -9,11 +9,11 @@ import reactor.core.publisher.Mono;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-//@Service
+@Service
 public class HospitalService {
 
 
-    /*HospitalRepository hospitalRepository;
+    HospitalRepository hospitalRepository;
 
     @Autowired
     public HospitalService(HospitalRepository hospitalRepository) {
@@ -31,5 +31,5 @@ public class HospitalService {
 
     public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalRepository.find("hospitalData").map(HospitalData::getOccupiedBedsNumber);
-    }*/
+    }
 }

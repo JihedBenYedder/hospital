@@ -5,10 +5,9 @@ import reactor.core.publisher.Mono;
 
 
 public interface HospitalRepository {
-    /*
+
     Mono save(String id, HospitalData value);
     Mono<HospitalData> find(String id);
     void delete(String id);
 
-     */
 }

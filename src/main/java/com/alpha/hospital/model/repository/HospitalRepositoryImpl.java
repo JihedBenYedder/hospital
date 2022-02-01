@@ -8,9 +8,9 @@ import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
 
-//@Repository
+@Repository
 public class HospitalRepositoryImpl implements HospitalRepository {
-/*
+
     @Resource
     private ReactiveRedisTemplate<String, HospitalData> reactiveRedisTemplate;
 
@@ -27,5 +27,5 @@ public class HospitalRepositoryImpl implements HospitalRepository {
     @Override
     public void delete(String id) {
             reactiveRedisTemplate.opsForValue().delete(id);
-    }*/
+    }
 }

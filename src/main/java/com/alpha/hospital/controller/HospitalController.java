@@ -13,10 +13,10 @@ import reactor.core.publisher.Mono;
 @EnableConfigurationProperties(RedisProperties.class)
 public class HospitalController {
 
-    //private final HospitalService hospitalService;
+    private final HospitalService hospitalService;
 
-    public HospitalController(RedisProperties redisProperties) {
-        //this.hospitalService = hospitalService;
+    public HospitalController(HospitalService hospitalService, RedisProperties redisProperties) {
+        this.hospitalService = hospitalService;
         System.out.println("password is"+ redisProperties.getPassword());
     }
 
@@ -24,7 +24,7 @@ public class HospitalController {
     public Mono<Integer> getTotalBedsNumber() {
         return Mono.empty();
     }
-/*
+
     @GetMapping(value = "/beds/occupied")
     public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
@@ -33,6 +33,6 @@ public class HospitalController {
     @PutMapping(value = "/data")
     public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
         return hospitalService.setHospitalData(hospitalData);
-    }*/
+    }
 
 }
