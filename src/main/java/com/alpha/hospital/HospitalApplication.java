@@ -6,12 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication(scanBasePackages =  {"com.alpha.hospital"})
-@EnableConfigurationProperties(RedisProperties.class)
 public class HospitalApplication {
 
-	public static void main(String[] args, RedisProperties redisProperties) {
+	public static void main(String[] args) {
 		SpringApplication.run(HospitalApplication.class, args);
-		System.out.println("password is"+ redisProperties.getPassword());
 	}
 
 }

@@ -10,12 +10,14 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/")
+@EnableConfigurationProperties(RedisProperties.class)
 public class HospitalController {
 
     private final HospitalService hospitalService;
 
-    public HospitalController(HospitalService hospitalService) {
+    public HospitalController(HospitalService hospitalService, RedisProperties redisProperties) {
         this.hospitalService = hospitalService;
+        System.out.println("password is"+ redisProperties.getPassword());
     }
 
     @GetMapping(value = "/beds/total")
