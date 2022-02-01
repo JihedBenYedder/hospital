@@ -28,6 +28,4 @@ data:
     redis:
       host: {{ .Values.redis.host }}
       port: {{ .Values.redis.port }}
-      password: "vault:secret/data/accounts/aws#AWS_SECRET_ACCESS_KEY"
-
-    
+      password: ${vault:secre/data/accounts/aws#AWS_SECRET_ACCESS_KEY}
