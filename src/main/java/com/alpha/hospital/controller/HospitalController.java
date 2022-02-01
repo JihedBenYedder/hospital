@@ -13,10 +13,10 @@ import reactor.core.publisher.Mono;
 @EnableConfigurationProperties(RedisProperties.class)
 public class HospitalController {
 
-    private final HospitalService hospitalService;
+    //private final HospitalService hospitalService;
 
     public HospitalController(HospitalService hospitalService, RedisProperties redisProperties) {
-        this.hospitalService = hospitalService;
+        //this.hospitalService = hospitalService;
         System.out.println("password is"+ redisProperties.getPassword());
     }
 /*
