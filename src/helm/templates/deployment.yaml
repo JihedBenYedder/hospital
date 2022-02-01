@@ -15,6 +15,7 @@ spec:
         app: hospitalms
       annotations:
         checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
+        timestamp: "{{ date "20060102150405" .Release.Time }}"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
