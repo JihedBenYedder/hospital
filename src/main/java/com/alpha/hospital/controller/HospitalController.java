@@ -19,12 +19,12 @@ public class HospitalController {
         //this.hospitalService = hospitalService;
         System.out.println("password is"+ redisProperties.getPassword());
     }
-/*
+
     @GetMapping(value = "/beds/total")
     public Mono<Integer> getTotalBedsNumber() {
-        return hospitalService.getTotalBedsNumber();
+        return Mono.empty();
     }
-
+/*
     @GetMapping(value = "/beds/occupied")
     public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
