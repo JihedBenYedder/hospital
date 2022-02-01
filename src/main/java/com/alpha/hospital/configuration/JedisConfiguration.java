@@ -15,15 +15,15 @@ import org.springframework.data.redis.serializer.RedisSerializationContext;
 
 import java.time.Duration;
 
-@Configuration
-@EnableRedisRepositories({
-        "com.alpha.hospital.configuration"
-})
-@EnableConfigurationProperties(RedisProperties.class)
+//@Configuration
+//@EnableRedisRepositories({
+  //      "com.alpha.hospital.configuration"
+//})
+//@EnableConfigurationProperties(RedisProperties.class)
 public class JedisConfiguration {
 
-    @Bean
-    @Primary
+    //@Bean
+    //@Primary
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory(RedisConfiguration defaultRedisConfig) {
         LettuceClientConfiguration clientConfig = LettuceClientConfiguration.builder()
                 //Do not use SSL for local testing
@@ -32,7 +32,7 @@ public class JedisConfiguration {
         return new LettuceConnectionFactory(defaultRedisConfig, clientConfig);
     }
 
-    @Bean
+    //@Bean
     public RedisConfiguration defaultRedisConfig(RedisProperties redisProperties) {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
         config.setHostName(redisProperties.getHost());

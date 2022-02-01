@@ -1,8 +1,10 @@
 package com.alpha.hospital.controller;
 
+import com.alpha.hospital.configuration.RedisProperties;
 import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.service.HospitalService;
 import io.swagger.models.auth.In;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
