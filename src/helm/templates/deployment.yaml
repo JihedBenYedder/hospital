@@ -21,6 +21,8 @@ spec:
         app: hospitalms
       annotations:
         checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
+        vault.security.banzaicloud.io/vault-addr: "https://vault.vault:8200"
+        vault.security.banzaicloud.io/vault-tls-secret: "vault-tls"
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
