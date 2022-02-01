@@ -31,9 +31,6 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-          - name: AWS_SECRET_ACCESS_KEY
-            value: "vault:secret/data/accounts/aws#AWS_SECRET_ACCESS_KEY"
           ports:
           - name: http
             protocol: TCP

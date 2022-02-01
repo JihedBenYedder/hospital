@@ -57,7 +57,7 @@ affinity: {}
 
 redis:
   host: redis-ssl.aysdzx.ng.0001.use2.cache.amazonaws.com
-  password: "vault:secret/data/dev/redis/password#REDIS_SECRET_PASSWORD_DEV"
+  password: ${vault:secret/data/dev/redis/password#REDIS_SECRET_PASSWORD_DEV}
 
 java_opts: -Dspring.config.location=/opt/config/application.yml
 
