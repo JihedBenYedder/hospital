@@ -22,7 +22,7 @@ public class HospitalController {
 
     @GetMapping(value = "/beds/total")
     public Mono<Integer> getTotalBedsNumber() {
-        return Mono.empty();
+        return hospitalService.getTotalBedsNumber();
     }
 
     @GetMapping(value = "/beds/occupied")
