@@ -2,8 +2,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "hospitalms.fullname" . }}
-  labels:
-    {{- include "hospitalms.labels" . | nindent 4 }}
+  annotations:
+    annotations:
+      checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
+      checksum/config-env: {{ include (print $.Template.BasePath "/configmap-env.yaml") . | sha256sum }}
+      #Kubernetes will notice that the pods have been updated and rollout new pods without downtime.
+      timestamp: "{{ date "20060102150405" .Release.Time }}"
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -13,22 +17,17 @@ spec:
     metadata:
       labels:
         app: hospitalms
-      annotations:
-        checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
-        timestamp: "{{ date "20060102150405" .Release.Time }}"
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: { { .Release.Name } }-configmap-env
+          volumeMounts:
+              - name: { { .Release.Name } }-configmap-file
+                mountPath: /opt/config
           ports:
           - name: http
             protocol: TCP
@@ -47,12 +46,6 @@ spec:
             periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          envFrom:
-            - configMapRef:
-                name: {{ .Release.Name }}-configmap-env
-          volumeMounts:
-            - name: {{ .Release.Name }}-configmap-file
-              mountPath: /opt/config
       volumes:
         - name: {{ .Release.Name }}-configmap-file
           configMap:

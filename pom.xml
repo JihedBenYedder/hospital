@@ -31,7 +31,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
-		<project.version>Baeldung</project.version>
+		<project.version>1.0.0</project.version>
 	</properties>
 	<dependencies>
 		<!-- spring -->

@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "hospitalms.name" . }}
   labels:
-    run: {{include "hospitalms.name" .}}
+    run: {{ include "hospitalms.name" .}}
   annotations:
  #   getambassador.io/config: |
   #    ---
