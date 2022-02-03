@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "hospitalms.fullname" . }}
+  labels:
+    { { - include "hospitalms.labels" . | nindent 4 } }
   annotations:
     annotations:
       checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
