@@ -8,8 +8,8 @@ spec:
   replicas: {{ .Values.replicaCount }}
   selector:
   matchLabels:
-    app: { { include "hospitalms.name" . } }
-    release: { { .Release.Name } }
+    app: {{ include "hospitalms.name" . }}
+    release: {{ .Release.Name }}
   template:
     metadata:
       labels:
