@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: {{ include "hospitalms.name" . }}
-    release: {{ .Release.Name }}
   template:
     metadata:
       labels:
