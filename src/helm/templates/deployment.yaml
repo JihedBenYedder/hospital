@@ -3,13 +3,7 @@ kind: Deployment
 metadata:
   name: {{ include "hospitalms.fullname" . }}
   labels:
-    { { - include "hospitalms.labels" . | nindent 4 } }
-  annotations:
-    annotations:
-      checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
-      checksum/config-env: {{ include (print $.Template.BasePath "/configmap-env.yaml") . | sha256sum }}
-      #Kubernetes will notice that the pods have been updated and rollout new pods without downtime.
-      timestamp: "{{ date "20060102150405" .Release.Time }}"
+    {{- include "hospitalms.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -20,9 +14,21 @@ spec:
     metadata:
       labels:
         app: hospitalms
+      annotations:
+        checksum/config-file: {{ include (print $.Template.BasePath "/configmap-file.yaml") . | sha256sum }}
+        #Kubernetes will notice that the pods have been updated and rollout new pods without downtime.
+        timestamp: "{{ date "20060102150405" .Release.Time }}"
     spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
