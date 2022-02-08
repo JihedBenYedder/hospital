@@ -34,18 +34,6 @@ spec:
           - name: http
             protocol: TCP
             containerPort: 8080
-          livenessProbe:
-            httpGet:
-              port: 8080
-              path: /hospital/beds/total
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              port: 8080
-              path: /hospital/beds/total
-            initialDelaySeconds: 30
-            periodSeconds: 10
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
