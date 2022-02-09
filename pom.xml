@@ -85,13 +85,20 @@
 				<artifactId>helm-maven-plugin</artifactId>
 				<version>6.0.0</version>
 				<configuration>
-					<chartDirectory>${project.basedir}</chartDirectory>
+					<chartDirectory>${project.basedir}/src/helm</chartDirectory>
 					<chartVersion>${project.version}</chartVersion>
-					<!-- This is the related section when using binary download -->
-					<helmDownloadUrl>https://get.helm.sh/helm-canary-windows-amd64.zip</helmDownloadUrl>
+					<appVersion>${project.version}</appVersion>
+					<useLocalHelmBinary>true</useLocalHelmBinary>
+					<autoDetectLocalHelmBinary>true</autoDetectLocalHelmBinary>
+					<helmVersion>3.2.0</helmVersion>
+					<values>
+						<overrides>
+							<component1.install.path>/opt/component1</component1.install.path>
+						</overrides>
+						<yamlFile>${project.basedir}/src/helm/Chart.yaml</yamlFile>
+					</values>
 				</configuration>
 			</plugin>
-
 		</plugins>
 
 	</build>
