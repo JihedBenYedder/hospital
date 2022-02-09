@@ -7,7 +7,7 @@ replicaCount: 2
 image:
   repository: 117677030399.dkr.ecr.us-east-2.amazonaws.com/hospitalms
   tag: latest
-  pullPolicy: Always
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: 
   - name: regcred
@@ -43,7 +43,7 @@ resources:
     memory: 120Mi
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
