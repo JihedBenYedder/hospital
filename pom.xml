@@ -89,10 +89,11 @@
 			<plugin>
 				<groupId>com.kiwigrid</groupId>
 				<artifactId>helm-maven-plugin</artifactId>
-				<version>5.7</version>
+				<version>6.0.0</version>
 				<configuration>
 					<chartDirectory>${project.basedir}</chartDirectory>
 					<chartVersion>${project.version}</chartVersion>
+					<appVersion>${project.version}</appVersion>
 					<useLocalHelmBinary>true</useLocalHelmBinary>
 					<autoDetectLocalHelmBinary>true</autoDetectLocalHelmBinary>
 					<values>
