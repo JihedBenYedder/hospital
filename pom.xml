@@ -91,7 +91,7 @@
 				<artifactId>helm-maven-plugin</artifactId>
 				<version>5.7</version>
 				<configuration>
-					<chartDirectory>${project.basedir}</chartDirectory>
+					<chartDirectory>${project.basedir}/src/helm</chartDirectory>
 					<chartVersion>${project.version}</chartVersion>
 					<appVersion>${project.version}</appVersion>
 					<useLocalHelmBinary>true</useLocalHelmBinary>
