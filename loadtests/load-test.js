@@ -3,7 +3,7 @@ import http from 'k6/http';
 
 export const options = {
   duration: '1m',
-  vus: 50,
+  vus: 15,
   thresholds: {
     http_req_duration: ['p(95)<500'], // 95 percent of response times must be below 500ms
   },
