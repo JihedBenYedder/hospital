@@ -1,5 +1,7 @@
 #!/bin/bash
 set -ex
 
-sudo yum install https://dl.k6.io/rpm/repo.rpm -y  
-sudo yum install k6 -y  --nogpgcheck
+yum install epel-release
+yum install DNF
+sudo dnf install https://dl.k6.io/rpm/repo.rpm   
+sudo dnf install k6 
