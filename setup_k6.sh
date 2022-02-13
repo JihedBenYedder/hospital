@@ -2,5 +2,5 @@
 set -ex
 
 yum install epel-release
-sudo dnf install https://dl.k6.io/rpm/repo.rpm  -y
-sudo dnf install k6  -y
+sudo yum install https://dl.k6.io/rpm/repo.rpm  -y
+sudo yum install k6  -y
