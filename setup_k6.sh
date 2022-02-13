@@ -2,7 +2,7 @@
 set -ex
 
 sudo yum clean all
-sudo yum update
+sudo yum update -y
 wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 #sudo yum install epel-release-latest-7.noarch.rpm -y
 #rpm --import /etc/pki/rpm-gpg/*GPG*
