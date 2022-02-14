@@ -40,24 +40,22 @@
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Snapshots</name>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-snap/</url>
 		</snapshotRepository>
 
 		<repository>
-			<id>my-internal-site</id>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-central/</url>
+			<id>releases</id>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins/</url>
 		</repository>
-		
-
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>maven-rel</id>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
-		</repository>
-	</repositories>
-
+	<pluginRepositories>
+		<pluginRepository>
+			<id>central</id>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins/</url>
+		</pluginRepository>
+	</pluginRepositories>
+	
 	<dependencies>
 		<!-- spring -->
 		<dependency>
