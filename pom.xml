@@ -34,6 +34,22 @@
 		<project.version>Baeldung</project.version>
 	</properties>
 
+	<mirrors>
+
+		<mirror>
+
+			<id>central</id>
+
+			<name>central</name>
+
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-central/</url>
+
+			<mirrorOf>*</mirrorOf>
+
+		</mirror>
+
+	</mirrors>
+
 	<distributionManagement>
 		<snapshotRepository>
 			<id>snapshots</id>
