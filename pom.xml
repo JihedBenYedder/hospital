@@ -13,7 +13,7 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>hospital</artifactId>
 
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.8-RELEASE</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
@@ -38,12 +38,12 @@
 		<snapshotRepository>
 			<id>snapshots</id>
 			<name>Snapshots</name>
-			<url>http://admin:Admin123@k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
 		</snapshotRepository>
 		<repository>
 			<id>releases</id>
 			<name>Releases</name>
-			<url>http://admin:Admin123@k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
 		</repository>
 
 	</distributionManagement>
