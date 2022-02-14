@@ -13,7 +13,7 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>hospital</artifactId>
 
-	<version>0.0.8-SNAPSHOT</version>
+	<version>0.0.8-RELEASE</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
@@ -44,10 +44,17 @@
 		</snapshotRepository>
 
 		<repository>
-			<id>central</id>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins/</url>
+			<id>releases</id>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
 		</repository>
 	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins</url>
+		</repository>
+	</repositories>
 
 
 	<dependencies>
