@@ -48,13 +48,7 @@
 			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins/</url>
 		</repository>
 	</distributionManagement>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>central</id>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins/</url>
-		</pluginRepository>
-	</pluginRepositories>
+	
 
 	<dependencies>
 		<!-- spring -->
