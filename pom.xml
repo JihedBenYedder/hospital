@@ -33,6 +33,15 @@
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
 		<project.version>Baeldung</project.version>
 	</properties>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>releases</id>
+			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-repo/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+
 	<dependencies>
 		<!-- spring -->
 		<dependency>
