@@ -38,13 +38,14 @@
 
 	<distributionManagement>
 		<snapshotRepository>
-			<id>snapshots</id>
+			<id>nexus-snapshots</id>
 			<name>Snapshots</name>
 			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-snap/</url>
 		</snapshotRepository>
 
 		<repository>
-			<id>releases</id>
+			<id>nexus-releases</id>
+			<name>Releases</name>
 			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
 		</repository>
 	</distributionManagement>
