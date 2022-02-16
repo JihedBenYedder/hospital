@@ -31,7 +31,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
-		<project.version>Baeldung</project.version>
+		<project.version>projetctVersion</project.version>
 	</properties>
 
 
@@ -40,20 +40,20 @@
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Snapshots</name>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-snap/</url>
+			<url>http://nexus.devops-tech.xyz/repository/maven-snap/</url>
 		</snapshotRepository>
 
 		<repository>
 			<id>nexus-releases</id>
 			<name>Releases</name>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-rel/</url>
+			<url>http://nexus.devops-tech.xyz/repository/maven-rel/</url>
 		</repository>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://k8s-devopstools-4c6c899b35-980016766.us-east-2.elb.amazonaws.com/repository/maven-proxy-jenkins</url>
+			<url>http://nexus.devops-tech.xyz/repository/maven-proxy-jenkins</url>
 		</repository>
 	</repositories>
 
