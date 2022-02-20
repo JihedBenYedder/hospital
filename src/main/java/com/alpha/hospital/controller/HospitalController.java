@@ -38,7 +38,7 @@ public class HospitalController {
     }
 
     @CrossOrigin(allowedHeaders = "*")
-    @GetMapping(value = "/data", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/data2", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<HospitalData> getHospitalData() {
 
         return Flux.interval(Duration.ofSeconds(1))
