@@ -13,10 +13,10 @@ public class HospitalData implements Serializable {
     private Integer occupiedBedsNumber;
     private Integer occupancyRate;
 
-    public HospitalData(HospitalData data) {
-        this.totalBedsNumber = data.getTotalBedsNumber();
-        this.occupiedBedsNumber = data.getOccupiedBedsNumber();
-        this.occupancyRate = data.getOccupancyRate();
+    public HospitalData(Integer totalBedsNumber, Integer occupiedBedsNumber, Integer occupancyRate ) {
+        this.totalBedsNumber = totalBedsNumber;
+        this.occupiedBedsNumber = occupiedBedsNumber;
+        this.occupancyRate = occupancyRate;
     }
 
     public Integer getTotalBedsNumber() {
