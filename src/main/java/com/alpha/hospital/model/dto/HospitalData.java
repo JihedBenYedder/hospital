@@ -7,6 +7,8 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HospitalData implements Serializable {
 
+    private static final long serialVersionUID = 6529685098267757690L;
+
     private Integer totalBedsNumber;
     private Integer occupiedBedsNumber;
     private Integer occupancyRate;
