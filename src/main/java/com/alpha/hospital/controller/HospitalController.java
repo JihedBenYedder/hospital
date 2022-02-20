@@ -41,6 +41,5 @@ public class HospitalController {
                 .map(it -> hospitalService.getHospitalData().block());
 
     }
-    
 
 }
