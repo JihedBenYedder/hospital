@@ -10,6 +10,6 @@ export const options = {
 };
 
 export default function () {
-  http.get('http://k8s-dev-d86f3a475c-571980439.us-east-2.elb.amazonaws.com/hospital/beds/total');
+  http.get('http://demo.devops-tech.xyz/hospital/beds/total');
   sleep(3);
 }
