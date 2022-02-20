@@ -37,7 +37,7 @@ public class HospitalController {
     @GetMapping(value = "/data", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<HospitalData> getHospitalData() {
 
-        return (Flux<HospitalData>) Flux.interval(Duration.ofSeconds(1))
+        return Flux.interval(Duration.ofSeconds(1))
                 .flatMap(it -> hospitalService.getHospitalData());
     }
 
