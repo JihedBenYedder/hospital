@@ -31,7 +31,7 @@ public class HospitalController {
     public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalService.getOccupiedBedsNumber();
     }
-    
+
 
     @CrossOrigin(allowedHeaders = "*")
     @GetMapping(value = "/data", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
@@ -41,5 +41,6 @@ public class HospitalController {
                 .map(it -> hospitalService.getHospitalData().block());
 
     }
+    
 
 }
