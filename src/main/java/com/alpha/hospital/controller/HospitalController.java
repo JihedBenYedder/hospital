@@ -32,6 +32,10 @@ public class HospitalController {
         return hospitalService.getOccupiedBedsNumber();
     }
 
+    @PutMapping(value = "/data")
+    public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
+        return hospitalService.setHospitalData(hospitalData);
+    }
 
     @CrossOrigin(allowedHeaders = "*")
     @GetMapping(value = "/data", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
