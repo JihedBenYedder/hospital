@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class HospitalService {
@@ -31,5 +29,9 @@ public class HospitalService {
 
     public Mono<Integer> getOccupiedBedsNumber() {
         return hospitalRepository.find("hospitalData").map(HospitalData::getOccupiedBedsNumber);
+    }
+
+    public Mono<HospitalData> getHospitalData() {
+        return hospitalRepository.find("hospitalData");
     }
 }

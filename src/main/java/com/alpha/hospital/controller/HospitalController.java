@@ -5,8 +5,12 @@ import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.service.HospitalService;
 import io.swagger.models.auth.In;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.time.Duration;
 
 @RestController
 @RequestMapping("/")
@@ -31,6 +35,15 @@ public class HospitalController {
     @PutMapping(value = "/data")
     public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
         return hospitalService.setHospitalData(hospitalData);
+    }
+
+    @CrossOrigin(allowedHeaders = "*")
+    @GetMapping(value = "/data", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<HospitalData> getHospitalData() {
+
+        return Flux.interval(Duration.ofSeconds(1))
+                .map(it -> hospitalService.getHospitalData().block());
+
     }
 
 }

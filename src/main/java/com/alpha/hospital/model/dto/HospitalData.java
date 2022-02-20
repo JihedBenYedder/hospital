@@ -9,6 +9,7 @@ public class HospitalData implements Serializable {
 
     private Integer totalBedsNumber;
     private Integer occupiedBedsNumber;
+    private Integer occupancyRate;
 
     public Integer getTotalBedsNumber() {
         return totalBedsNumber;
