@@ -28,28 +28,9 @@ public class HospitalApplication {
 		SpringApplication.run(HospitalApplication.class, args);
 	}
 
-	@Bean
-	public NewTopic topic() {
-		return TopicBuilder.name("topic1")
-				.partitions(10)
-				.replicas(1)
-				.build();
-	}
-
-	@KafkaListener(topics = "topic1")
-	public void listenWithHeaders(
-			@Payload String message,
-			@Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-		System.out.println(
-				"Received Message: " + message
-						+ "from partition: " + partition);
-	}
-
-	@Bean
-	public KafkaAdmin admin() {
-		Map<String, Object> configs = new HashMap<>();
-		configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "172.31.13.152:9098");
-		return new KafkaAdmin(configs);
+	@KafkaListener(topics = "topic1", groupId = "group_id")
+	public void consume(String message) {
+		System.out.println(String.format("$$$$ => Consumed message: %s", message));
 	}
 
 }
