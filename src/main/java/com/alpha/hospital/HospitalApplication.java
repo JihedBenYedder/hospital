@@ -20,7 +20,6 @@ import org.springframework.messaging.handler.annotation.Payload;
 import java.util.HashMap;
 import java.util.Map;
 
-@EnableKafka
 @SpringBootApplication(scanBasePackages =  {"com.alpha.hospital"})
 public class HospitalApplication {
 
