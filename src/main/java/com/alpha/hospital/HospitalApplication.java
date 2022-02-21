@@ -30,6 +30,7 @@ public class HospitalApplication {
 	@KafkaListener(topics = "topic1", groupId = "group_id")
 	public void consume(String message) {
 		System.out.println(String.format("$$$$ => Consumed message: %s", message));
+
 	}
 
 }

@@ -34,4 +34,21 @@ public class HospitalService {
     public Mono<HospitalData> getHospitalData() {
         return hospitalRepository.find("hospitalData");
     }
+
+    public void handlePatient() {
+       hospitalRepository.find("hospitalData").map(data -> {
+           Integer occupiedBeds = data.getOccupiedBedsNumber();
+           Integer totalBedsNumber = data.getTotalBedsNumber();
+           Integer occupancyRate = data.getOccupancyRate();
+           if(totalBedsNumber - occupiedBeds > 0) {
+               occupiedBeds++;
+               occupancyRate= (occupiedBeds/totalBedsNumber)*100;
+           } else {
+               System.out.println("Hospital is full");
+           }
+           data.setOccupiedBedsNumber(occupiedBeds);
+           setHospitalData(data);
+          return null;
+       });
+    }
 }
