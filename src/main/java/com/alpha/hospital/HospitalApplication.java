@@ -48,7 +48,7 @@ public class HospitalApplication {
 	@Bean
 	public KafkaAdmin admin() {
 		Map<String, Object> configs = new HashMap<>();
-		configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "boot-2vieizei.c2.kafka-serverless.us-east-2.amazonaws.com:9098");
+		configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, "172.31.13.152:9098");
 		return new KafkaAdmin(configs);
 	}
 
