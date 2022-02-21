@@ -30,3 +30,12 @@ data:
       host: {{ .Values.redis.host }}
       port: {{ .Values.redis.port }}
       password: {{ .Values.redis.password }}
+    
+    spring:
+      kafka:
+        consumer:
+          bootstrap-servers: 172.31.13.152:9098
+          group-id: group_id
+          auto-offset-reset: earliest
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
