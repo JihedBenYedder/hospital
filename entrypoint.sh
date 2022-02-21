@@ -1,4 +1,4 @@
 #!/bin/bash
 
 ls -l
-java  ${JAVA_OPTS} -jar app.jar
+java -Djavax.net.ssl.trustStore=truststore.jks -Djavax.net.ssl.truststoretype=JKS -Djavax.net.ssl.trustStorePassword=changeit ${JAVA_OPTS} -jar app.jar
