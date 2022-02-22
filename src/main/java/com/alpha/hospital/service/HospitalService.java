@@ -37,26 +37,19 @@ public class HospitalService {
 
     public void handlePatient() {
         System.out.println("handlPatient2");
-        Mono<HospitalData> dt = hospitalRepository.find("hospitalData");
-        System.out.println("dt :"+dt.block().getOccupiedBedsNumber());
-        System.out.println("handlPatient3");
-
-        dt.flatMap(data -> {
-           System.out.println("handlPatient");
-           Integer occupiedBeds = data.getOccupiedBedsNumber();
-           Integer totalBedsNumber = data.getTotalBedsNumber();
-           Integer occupancyRate = data.getOccupancyRate();
-           if(totalBedsNumber - occupiedBeds > 0) {
-               System.out.println("patient has covid");
-               occupiedBeds++;
-               occupancyRate= (occupiedBeds/totalBedsNumber)*100;
-           } else {
-               System.out.println("Hospital is full");
-           }
-           data.setOccupiedBedsNumber(occupiedBeds);
-           data.setOccupancyRate(occupancyRate);
-           setHospitalData(data);
-          return null;
-       });
+        HospitalData dt = hospitalRepository.find("hospitalData").block();
+        Integer occupiedBeds = dt.getOccupiedBedsNumber();
+        Integer totalBedsNumber = dt.getTotalBedsNumber();
+        Integer occupancyRate = dt.getOccupancyRate();
+        if(dt.getTotalBedsNumber()-dt.getOccupiedBedsNumber() >0) {
+            System.out.println("patient has covid");
+            occupiedBeds++;
+            occupancyRate= (occupiedBeds/totalBedsNumber)*100;
+            dt.setOccupiedBedsNumber(occupiedBeds);
+            dt.setOccupancyRate(occupancyRate);
+            setHospitalData(dt);
+        } else {
+            System.out.println("Hospital is full");
+        }
     }
 }
