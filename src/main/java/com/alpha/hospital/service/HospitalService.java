@@ -36,6 +36,7 @@ public class HospitalService {
     }
 
     public void handlePatient() {
+        System.out.println("handlPatient");
        hospitalRepository.find("hospitalData").map(data -> {
            Integer occupiedBeds = data.getOccupiedBedsNumber();
            Integer totalBedsNumber = data.getTotalBedsNumber();
