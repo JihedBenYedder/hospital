@@ -43,9 +43,9 @@ public class HospitalService {
         Integer occupancyRate = dt.getOccupancyRate();
         if(dt.getTotalBedsNumber()-dt.getOccupiedBedsNumber() >0) {
             System.out.println("patient has covid");
-            occupiedBeds = occupiedBeds++;
+            occupiedBeds = occupiedBeds+1;
             occupancyRate = (occupiedBeds/totalBedsNumber)*100;
-            HospitalData newDt = new HospitalData(totalBedsNumber, occupiedBeds, occupancyRate);
+            HospitalData newDt = new HospitalData(totalBedsNumber, occupiedBeds, 5);
             setHospitalData(newDt);
         } else {
             System.out.println("Hospital is full");
