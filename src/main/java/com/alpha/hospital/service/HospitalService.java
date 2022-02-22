@@ -37,17 +37,18 @@ public class HospitalService {
         return hospitalRepository.find("hospitalData");
     }
 
-    public  Mono handlePatient() {
-        System.out.println("handlPatient5");
-        return hospitalRepository.find("hospitalData")
-                .map(d ->  {
-                    HospitalData dd = new HospitalData(d.getTotalBedsNumber(), d.getOccupiedBedsNumber()+1, 5);
-                            System.out.println("handlPatient5 "+ dd.getOccupiedBedsNumber());
-                            return dd;
-                }
-                )
-                .map(this::setHospitalData);
 
+
+    public Mono handlePatient() {
+        return hospitalRepository.find("hospitalData") // (1)
+                .map(abc -> transform(abc))   // (2)
+                .defaultIfEmpty(new HospitalData(0,0,0))               // (3)
+                .flatMap(this::setHospitalData);
+    }
+
+    private HospitalData transform(HospitalData current) {
+        current.setOccupiedBedsNumber(current.getOccupiedBedsNumber()+1);
+        return current;
     }
 
 }
