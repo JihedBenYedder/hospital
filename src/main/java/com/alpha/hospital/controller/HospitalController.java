@@ -39,7 +39,7 @@ public class HospitalController {
     }
 
     @KafkaListener(topics = "topic1", groupId = "group_id")
-    public Mono<Boolean> consume(String message) {
+    public Mono consume(String message) {
         System.out.println(String.format("$ => Consumed message: %s", message));
         return hospitalService.handlePatient();
     }

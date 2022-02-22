@@ -38,12 +38,10 @@ public class HospitalService {
 
 
 
-    public Mono<Boolean> handlePatient() {
-        HospitalData ht = new HospitalData(45,45,45);
-        return setHospitalData(ht);
-      /*  hospitalRepository.find("hospitalData") // (1)
-                .transform(HospitalService::transform)
-                .subscribe(t -> System.out.println("dsfddsf"));*/
+    public Mono handlePatient() {
+       return hospitalRepository.find("hospitalData") // (1)
+                .map(c -> {c.setOccupiedBedsNumber(45); return c;})
+                .flatMap(d -> hospitalRepository.save("hospitalData",d));
     }
 
     private static Mono<HospitalData> transform(Mono<HospitalData> current) {
