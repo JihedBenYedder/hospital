@@ -37,9 +37,9 @@ public class HospitalService {
         return hospitalRepository.find("hospitalData");
     }
 
-    public void handlePatient() {
+    public  Mono handlePatient() {
         System.out.println("handlPatient5");
-        hospitalRepository.find("hospitalData")
+        return hospitalRepository.find("hospitalData")
                 .map(d ->  {
                     HospitalData dd = new HospitalData(d.getTotalBedsNumber(), d.getOccupiedBedsNumber()+1, 5);
                             System.out.println("handlPatient5 "+ dd.getOccupiedBedsNumber());
@@ -49,4 +49,5 @@ public class HospitalService {
                 .map(this::setHospitalData);
 
     }
+
 }
