@@ -1,9 +1,11 @@
 package com.alpha.hospital;
 
 import com.alpha.hospital.configuration.RedisProperties;
+import com.alpha.hospital.service.HospitalService;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.KafkaAdminClient;
 import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,14 +25,10 @@ import java.util.Map;
 @SpringBootApplication(scanBasePackages =  {"com.alpha.hospital"})
 public class HospitalApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(HospitalApplication.class, args);
 	}
 
-	@KafkaListener(topics = "topic1", groupId = "group_id")
-	public void consume(String message) {
-		System.out.println(String.format("$$$$ => Consumed message: %s", message));
-
-	}
 
 }

@@ -22,6 +22,10 @@ data:
         application-display-name: hospital-management
 
     management:
+      endpoints:
+        web:
+          exposure:
+            include: "*"
       health:
         redis:
           enabled: true

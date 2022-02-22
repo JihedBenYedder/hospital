@@ -6,6 +6,7 @@ import com.alpha.hospital.service.HospitalService;
 import io.swagger.models.auth.In;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.MediaType;
+import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -35,6 +36,13 @@ public class HospitalController {
     @PutMapping(value = "/data")
     public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
         return hospitalService.setHospitalData(hospitalData);
+    }
+
+    @KafkaListener(topics = "topic1", groupId = "group_id")
+    public void consume(String message) {
+        hospitalService.handlePatient();
+        System.out.println(String.format("$$$$ => Consumed message: %s", message));
+
     }
 
     @CrossOrigin(allowedHeaders = "*")
