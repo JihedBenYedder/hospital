@@ -36,8 +36,9 @@ public class HospitalService {
     }
 
     public void handlePatient() {
-        System.out.println("handlPatient");
-       hospitalRepository.find("hospitalData").map(data -> {
+        System.out.println("handlPatient2");
+       hospitalRepository.find("hospitalData").flatMap(data -> {
+           System.out.println("handlPatient");
            Integer occupiedBeds = data.getOccupiedBedsNumber();
            Integer totalBedsNumber = data.getTotalBedsNumber();
            Integer occupancyRate = data.getOccupancyRate();
