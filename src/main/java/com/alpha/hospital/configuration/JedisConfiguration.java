@@ -8,8 +8,10 @@ import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisConfiguration;
 import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
 import java.time.Duration;
@@ -20,7 +22,7 @@ import java.time.Duration;
 })
 @EnableConfigurationProperties(RedisProperties.class)
 public class JedisConfiguration {
-
+/*
     @Bean
     @Primary
     public ReactiveRedisConnectionFactory reactiveRedisConnectionFactory(RedisConfiguration defaultRedisConfig) {
@@ -37,6 +39,23 @@ public class JedisConfiguration {
         config.setHostName(redisProperties.getHost());
         config.setPassword(RedisPassword.of(redisProperties.getPassword()));
         return config;
+    }*/
+
+    @Bean
+    JedisConnectionFactory jedisConnectionFactory(RedisProperties redisProperties) {
+        JedisConnectionFactory jedisConFactory
+                = new JedisConnectionFactory();
+        jedisConFactory.setHostName(redisProperties.getHost());
+        jedisConFactory.setPort(6379);
+        jedisConFactory.setPassword(RedisPassword.of(redisProperties.getPassword());
+        return jedisConFactory;
+    }
+
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(RedisProperties redisProperties) {
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        template.setConnectionFactory(jedisConnectionFactory(redisProperties));
+        return template;
     }
 
 

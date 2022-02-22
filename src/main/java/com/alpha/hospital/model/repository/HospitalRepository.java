@@ -4,11 +4,11 @@ import com.alpha.hospital.model.dto.HospitalData;
 import org.springframework.data.repository.CrudRepository;
 import reactor.core.publisher.Mono;
 
+import java.util.Optional;
 
-public interface HospitalRepository extends CrudRepository<String, HospitalData> {
 
-    Mono<Boolean> save(String id, HospitalData value);
-    Mono<HospitalData> find(String id);
-    void delete(String id);
+public interface HospitalRepository {
 
+    void save(String id, HospitalData value);
+    Optional<HospitalData> find(String id);
 }
