@@ -13,7 +13,7 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>hospital</artifactId>
 
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.3.1-SNAPSHOT</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
@@ -31,7 +31,6 @@
 	<properties>
 		<java.version>11</java.version>
 		<springfox.swagger.version>3.0.0</springfox.swagger.version>
-		<project.version>projetctVersion</project.version>
 	</properties>
 
 
@@ -103,25 +102,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>io.kokuwa.maven</groupId>
-				<artifactId>helm-maven-plugin</artifactId>
-				<version>6.0.0</version>
-				<configuration>
-					<chartDirectory>${project.basedir}/src/helm</chartDirectory>
-					<chartVersion>${project.version}</chartVersion>
-					<appVersion>${project.version}</appVersion>
-					<useLocalHelmBinary>true</useLocalHelmBinary>
-					<autoDetectLocalHelmBinary>true</autoDetectLocalHelmBinary>
-					<helmVersion>3.2.0</helmVersion>
-					<values>
-						<overrides>
-							<component1.install.path>/opt/component1</component1.install.path>
-						</overrides>
-						<yamlFile>${project.basedir}/src/helm/Chart.yaml</yamlFile>
-					</values>
-				</configuration>
 			</plugin>
 		</plugins>
 

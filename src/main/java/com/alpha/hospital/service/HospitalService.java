@@ -40,7 +40,7 @@ public class HospitalService {
         Mono<HospitalData> dt = hospitalRepository.find("hospitalData");
         System.out.println("dt :"+dt.block().getOccupiedBedsNumber());
         System.out.println("handlPatient3");
-        
+
         dt.flatMap(data -> {
            System.out.println("handlPatient");
            Integer occupiedBeds = data.getOccupiedBedsNumber();
