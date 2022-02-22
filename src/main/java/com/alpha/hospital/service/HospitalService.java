@@ -39,7 +39,7 @@ public class HospitalService {
 
 
 
-    public Void handlePatient() {
+    public void handlePatient() {
          hospitalRepository.find("hospitalData") // (1)
                 .map(this::transform)
                 .subscribe(t -> System.out.println("dsfddsf"));
