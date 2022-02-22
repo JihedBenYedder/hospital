@@ -23,7 +23,7 @@ public class HospitalService {
         return hospitalRepository.find("hospitalData").map(HospitalData::getTotalBedsNumber);
     }
 
-    public Mono setHospitalData(HospitalData hospitalData) {
+    public Mono<Boolean> setHospitalData(HospitalData hospitalData) {
         return hospitalRepository.save("hospitalData",hospitalData);
     }
 
@@ -38,7 +38,7 @@ public class HospitalService {
 
 
 
-    public Mono handlePatient() {
+    public Mono<Boolean> handlePatient() {
         HospitalData ht = new HospitalData(45,45,45);
         return setHospitalData(ht);
       /*  hospitalRepository.find("hospitalData") // (1)

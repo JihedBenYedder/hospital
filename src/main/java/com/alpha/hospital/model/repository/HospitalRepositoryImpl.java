@@ -15,7 +15,7 @@ public class HospitalRepositoryImpl implements HospitalRepository {
     private ReactiveRedisTemplate<String, HospitalData> reactiveRedisTemplate;
 
     @Override
-    public Mono save(String id, HospitalData value) {
+    public Mono<Boolean> save(String id, HospitalData value) {
         System.out.println("saving : "+value.getOccupiedBedsNumber());
         return reactiveRedisTemplate.opsForValue().set("hospitalData", value);
     }

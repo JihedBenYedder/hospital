@@ -39,10 +39,9 @@ public class HospitalController {
     }
 
     @KafkaListener(topics = "topic1", groupId = "group_id")
-    public void consume(String message) {
-        hospitalService.handlePatient();
+    public Mono<Boolean> consume(String message) {
         System.out.println(String.format("$ => Consumed message: %s", message));
-
+        return hospitalService.handlePatient();
     }
 
     @CrossOrigin(allowedHeaders = "*")
