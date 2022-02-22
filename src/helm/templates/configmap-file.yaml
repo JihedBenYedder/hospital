@@ -34,7 +34,7 @@ data:
     spring:
       kafka:
         consumer:
-          bootstrap-servers: boot-2vieizei.c2.kafka-serverless.us-east-2.amazonaws.com:9098
+          bootstrap-servers: 192.168.171.126:9098
           group-id: group_id
           auto-offset-reset: earliest
           key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
