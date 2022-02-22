@@ -39,11 +39,10 @@ public class HospitalService {
 
 
 
-    public Mono handlePatient() {
-        return hospitalRepository.find("hospitalData") // (1)
-                .map(this::transform)   // (2)
-                .defaultIfEmpty(new HospitalData(0,0,0))               // (3)
-                .flatMap(this::setHospitalData);
+    public Void handlePatient() {
+         hospitalRepository.find("hospitalData") // (1)
+                .map(this::transform)
+                .subscribe(t -> System.out.println("dsfddsf"));
     }
 
     private HospitalData transform(HospitalData current) {
