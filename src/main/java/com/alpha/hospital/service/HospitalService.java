@@ -41,10 +41,10 @@ public class HospitalService {
         System.out.println("handlPatient4");
         hospitalRepository.find("hospitalData")
                 .map(d ->  {
-                    HospitalData dd = new HospitalData(d.getTotalBedsNumber(), d.getOccupiedBedsNumber()+1, 5)
+                    HospitalData dd = new HospitalData(d.getTotalBedsNumber(), d.getOccupiedBedsNumber()+1, 5);
                             System.out.println("handlPatient5 "+ dd.getOccupiedBedsNumber());
                             return dd;
-                }               
+                }
                 )
                 .map(this::setHospitalData);
 
