@@ -39,9 +39,9 @@ public class HospitalService {
 
 
 
-    public void handlePatient() {
+    public Mono handlePatient() {
         HospitalData ht = new HospitalData(45,45,45);
-        setHospitalData(ht);
+        return setHospitalData(ht);
       /*  hospitalRepository.find("hospitalData") // (1)
                 .transform(HospitalService::transform)
                 .subscribe(t -> System.out.println("dsfddsf"));*/
