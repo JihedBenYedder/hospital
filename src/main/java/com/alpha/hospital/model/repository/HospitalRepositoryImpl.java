@@ -1,13 +1,11 @@
 package com.alpha.hospital.model.repository;
 
 import com.alpha.hospital.model.dto.HospitalData;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Mono;
 
 import javax.annotation.Resource;
+import java.util.Optional;
 
 @Repository
 public class HospitalRepositoryImpl implements HospitalRepository {
@@ -23,8 +21,8 @@ public class HospitalRepositoryImpl implements HospitalRepository {
     }
 
     @Override
-    public HospitalData find(String id) {
-        return hashOperations.get(id,hashReference);
+    public Optional<HospitalData> find(String id) {
+        return Optional.ofNullable(hashOperations.get(id,hashReference));
     }
 
 }

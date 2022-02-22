@@ -47,7 +47,7 @@ public class JedisConfiguration {
                 = new JedisConnectionFactory();
         jedisConFactory.setHostName(redisProperties.getHost());
         jedisConFactory.setPort(6379);
-        jedisConFactory.setPassword(RedisPassword.of(redisProperties.getPassword());
+        jedisConFactory.setPassword(redisProperties.getPassword());
         return jedisConFactory;
     }
 

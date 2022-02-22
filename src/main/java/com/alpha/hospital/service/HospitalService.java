@@ -4,7 +4,6 @@ import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.model.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
 
 
@@ -43,7 +42,7 @@ public class HospitalService {
 
 
     public void handlePatient() {
-        HospitalData hs = new HospitalData(45,45,45)
+        HospitalData hs = new HospitalData(45,45,45);
         hospitalRepository.save("hospitalData",hs);
       /* return hospitalRepository.find("hospitalData")
                 .switchIfEmpty(Mono.error(new Exception("COMPUTER_NOT_FOUND")))// (1)

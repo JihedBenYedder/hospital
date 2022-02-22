@@ -34,8 +34,8 @@ public class HospitalController {
     }
 
     @PutMapping(value = "/data")
-    public Mono setHospitalData(@RequestBody HospitalData hospitalData) {
-        return hospitalService.setHospitalData(hospitalData);
+    public void setHospitalData(@RequestBody HospitalData hospitalData) {
+        hospitalService.setHospitalData(hospitalData);
     }
 
     @KafkaListener(topics = "topic1", groupId = "group_id")
