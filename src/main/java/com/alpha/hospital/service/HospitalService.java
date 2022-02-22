@@ -41,7 +41,7 @@ public class HospitalService {
 
     public Mono handlePatient() {
         return hospitalRepository.find("hospitalData") // (1)
-                .map(abc -> transform(abc))   // (2)
+                .map(this::transform)   // (2)
                 .defaultIfEmpty(new HospitalData(0,0,0))               // (3)
                 .flatMap(this::setHospitalData);
     }
