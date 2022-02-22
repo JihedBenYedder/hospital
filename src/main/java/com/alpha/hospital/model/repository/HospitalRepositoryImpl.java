@@ -13,7 +13,6 @@ import java.util.Optional;
 @Repository
 public class HospitalRepositoryImpl implements HospitalRepository {
 
-    @Qualifier("redisTemplate")
     @Autowired
     private RedisTemplate<String, HospitalData> redisTemplate;
 

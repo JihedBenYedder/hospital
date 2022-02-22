@@ -1,5 +1,6 @@
 package com.alpha.hospital.configuration;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,9 +18,7 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 import java.time.Duration;
 
 @Configuration
-@EnableRedisRepositories({
-        "com.alpha.hospital.configuration"
-})
+@EnableRedisRepositories
 @EnableConfigurationProperties(RedisProperties.class)
 public class JedisConfiguration {
 /*
@@ -49,6 +48,7 @@ public class JedisConfiguration {
     }
 
     @Bean
+    @Qualifier("redisUserTemplate")
     public RedisTemplate<String, Object> redisTemplate(RedisProperties redisProperties) {
         RedisTemplate<String, Object> template = new RedisTemplate<>();
         template.setConnectionFactory(jedisConnectionFactory(redisProperties));
