@@ -4,6 +4,7 @@ import com.alpha.hospital.model.dto.HospitalData;
 import com.alpha.hospital.model.repository.HospitalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Mono;
 
 
@@ -22,6 +23,7 @@ public class HospitalService {
         return hospitalRepository.find("hospitalData").map(HospitalData::getTotalBedsNumber);
     }
 
+    @Transactional
     public Mono setHospitalData(HospitalData hospitalData) {
         return hospitalRepository.save("hospitalData",hospitalData);
     }
