@@ -39,7 +39,8 @@ public class HospitalService {
 
 
     public Mono handlePatient() {
-       return hospitalRepository.find("hospitalData") // (1)
+       return hospitalRepository.find("hospitalData")
+                .switchIfEmpty(Mono.error(new Exception("COMPUTER_NOT_FOUND")))// (1)
                 .map(c -> {c.setOccupiedBedsNumber(45); return c;})
                 .flatMap(d -> hospitalRepository.save("hospitalData",d));
     }
