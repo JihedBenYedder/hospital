@@ -45,9 +45,8 @@ public class HospitalService {
             System.out.println("patient has covid");
             occupiedBeds++;
             occupancyRate= (occupiedBeds/totalBedsNumber)*100;
-            dt.setOccupiedBedsNumber(occupiedBeds);
-            dt.setOccupancyRate(occupancyRate);
-            setHospitalData(dt);
+            HospitalData newDt = new HospitalData(totalBedsNumber, occupiedBeds, occupancyRate);
+            setHospitalData(newDt);
         } else {
             System.out.println("Hospital is full");
         }
