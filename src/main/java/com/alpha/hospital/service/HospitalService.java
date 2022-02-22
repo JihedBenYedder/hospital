@@ -24,7 +24,6 @@ public class HospitalService {
     }
 
     public Mono setHospitalData(HospitalData hospitalData) {
-        System.out.println("saving : "+hospitalData.getOccupiedBedsNumber());
         return hospitalRepository.save("hospitalData",hospitalData);
     }
 
