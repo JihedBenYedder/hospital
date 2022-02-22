@@ -23,7 +23,6 @@ public class HospitalService {
         return hospitalRepository.find("hospitalData").map(HospitalData::getTotalBedsNumber);
     }
 
-    @Transactional
     public Mono setHospitalData(HospitalData hospitalData) {
         return hospitalRepository.save("hospitalData",hospitalData);
     }
@@ -39,19 +38,7 @@ public class HospitalService {
 
     public void handlePatient() {
         System.out.println("handlPatient2");
-        HospitalData dt = hospitalRepository.find("hospitalData").block();
-        Integer occupiedBeds = dt.getOccupiedBedsNumber();
-        Integer totalBedsNumber = dt.getTotalBedsNumber();
-        Integer occupancyRate = dt.getOccupancyRate();
-        if(dt.getTotalBedsNumber()-dt.getOccupiedBedsNumber() >0) {
-            System.out.println("patient has covid");
-            occupiedBeds = occupiedBeds+1;
-            occupancyRate = (occupiedBeds/totalBedsNumber)*100;
-            System.out.println(occupiedBeds);
-            HospitalData newDt = new HospitalData(totalBedsNumber, occupiedBeds, 5);
-            setHospitalData(newDt);
-        } else {
-            System.out.println("Hospital is full");
-        }
+        hospitalRepository.find("hospitalData").map(d ->  new HospitalData(d.getTotalBedsNumber(), d.getOccupiedBedsNumber()+1, 5)).flatMap(this::setHospitalData);
+
     }
 }
