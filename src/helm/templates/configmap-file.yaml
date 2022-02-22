@@ -34,7 +34,7 @@ data:
     spring:
       kafka:
         consumer:
-          bootstrap-servers: 192.168.171.126:9098
+          bootstrap-servers: my-cluster-kafka-bootstrap.vadal:9092
           group-id: group_id
           auto-offset-reset: earliest
           key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
