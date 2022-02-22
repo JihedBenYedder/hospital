@@ -20,7 +20,7 @@ public class HospitalRepositoryImpl implements HospitalRepository {
 
     @Override
     public void save(String id, HospitalData value) {
-        redisTemplate.opsForValue().set(hashReference, value);
+        redisTemplate.opsForValue().set(id, value);
     }
 
     @Override

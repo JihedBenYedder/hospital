@@ -1,24 +1,19 @@
 package com.alpha.hospital.configuration;
 
+import com.alpha.hospital.model.dto.HospitalData;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.data.redis.connection.ReactiveRedisConnectionFactory;
-import org.springframework.data.redis.connection.RedisConfiguration;
-import org.springframework.data.redis.connection.RedisPassword;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 
-import java.time.Duration;
-
 @Configuration
-@EnableRedisRepositories
+@EnableRedisRepositories({
+        "com.alpha.hospital.model.repository"
+})
 @EnableConfigurationProperties(RedisProperties.class)
 public class JedisConfiguration {
 /*
@@ -48,10 +43,9 @@ public class JedisConfiguration {
     }
 
     @Bean
-    @Qualifier("redisUserTemplate")
-    public RedisTemplate<String, Object> redisTemplate(RedisProperties redisProperties) {
-        RedisTemplate<String, Object> template = new RedisTemplate<>();
-        template.setConnectionFactory(jedisConnectionFactory(redisProperties));
+    public RedisTemplate<String, HospitalData> redisTemplate(@Qualifier("jedisConnectionFactory") final JedisConnectionFactory jedisConnectionFactory) {
+        RedisTemplate<String, HospitalData> template = new RedisTemplate<>();
+        template.setConnectionFactory(jedisConnectionFactory);
         return template;
     }
 
