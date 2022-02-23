@@ -6,9 +6,13 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration;
+import org.springframework.data.redis.connection.jedis.JedisClientConfiguration.JedisClientConfigurationBuilder;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
+
+import java.time.Duration;
 
 @Configuration
 @EnableRedisRepositories({
@@ -38,11 +42,19 @@ public class JedisConfiguration {
     @Bean
     JedisConnectionFactory jedisConnectionFactory(RedisProperties redisProperties) {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisProperties.getHost(), 6379);
-        redisStandaloneConfiguration.setPassword(redisProperties.getPassword());
-        JedisConnectionFactory cnxFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
-        cnxFactory.getPoolConfig().setMaxIdle(30);
-        cnxFactory.getPoolConfig().setMinIdle(10);
-        return cnxFactory;
+
+        redisStandaloneConfiguration.setPassword(new String(redisProperties.getPassword()).toCharArray());
+
+        JedisClientConfigurationBuilder jedisClientConfiguration = JedisClientConfiguration.builder();
+        jedisClientConfiguration.connectTimeout(Duration.ofSeconds(60));// 60s connection timeout
+        jedisClientConfiguration.useSsl();
+        jedisClientConfiguration.usePooling();
+
+        JedisConnectionFactory jedisConFactory = new JedisConnectionFactory(redisStandaloneConfiguration,
+                jedisClientConfiguration.build());
+        jedisConFactory.afterPropertiesSet();
+
+        return jedisConFactory;
     }
 
     @Bean
