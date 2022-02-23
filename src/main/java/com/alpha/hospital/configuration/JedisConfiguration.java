@@ -39,7 +39,10 @@ public class JedisConfiguration {
     JedisConnectionFactory jedisConnectionFactory(RedisProperties redisProperties) {
         RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisProperties.getHost(), 6379);
         redisStandaloneConfiguration.setPassword(redisProperties.getPassword());
-        return new JedisConnectionFactory(redisStandaloneConfiguration);
+        JedisConnectionFactory cnxFactory = new JedisConnectionFactory(redisStandaloneConfiguration);
+        cnxFactory.getPoolConfig().setMaxIdle(30);
+        cnxFactory.getPoolConfig().setMinIdle(10);
+        return cnxFactory;
     }
 
     @Bean
