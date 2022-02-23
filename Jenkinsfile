@@ -1,2 +1,2 @@
 @Library('SharedLib') _
-welcomeJob ‘lambdatest’
+welcomeJob('lambdatest’)
