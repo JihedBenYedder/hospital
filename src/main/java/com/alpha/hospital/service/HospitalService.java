@@ -42,16 +42,21 @@ public class HospitalService {
 
 
     public void handlePatient() {
-        HospitalData hs = new HospitalData(45,45,45);
-        hospitalRepository.save("hospitalData",hs);
-      /* return hospitalRepository.find("hospitalData")
-                .switchIfEmpty(Mono.error(new Exception("COMPUTER_NOT_FOUND")))// (1)
-                .map(c -> {c.setOccupiedBedsNumber(45); return c;})
-                .flatMap(d -> hospitalRepository.save("hospitalData",d));*/
-    }
-
-    private static Mono<HospitalData> transform(Mono<HospitalData> current) {
-        return current;
+       hospitalRepository.find("hospitalData").map(data -> {
+           Integer occupiedBeds = data.getOccupiedBedsNumber();
+           Integer totalBedsNumber = data.getTotalBedsNumber();
+           Integer occupancyRate = data.getOccupancyRate();
+           if(totalBedsNumber - occupiedBeds > 0) {
+               System.out.println("patient has covid");
+               occupiedBeds=occupiedBeds+1;
+               occupancyRate= (occupiedBeds/totalBedsNumber)*100;
+           } else {
+               System.out.println("Hospital is full");
+           }
+           data.setOccupiedBedsNumber(occupiedBeds);
+           data.setOccupancyRate(occupancyRate);
+           setHospitalData(data);
+       });
     }
 
 }
