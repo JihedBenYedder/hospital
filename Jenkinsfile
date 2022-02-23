@@ -1,2 +1,2 @@
-@Library('SharedLib') _
-welcomeJob
+@Library('SharedLib')_
+welcomeJob(name: "3.6")
