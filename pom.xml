@@ -122,7 +122,7 @@
 			<plugin>
 				<groupId>com.github.stephenc.continuous</groupId>
 				<artifactId>git-timestamp-maven-plugin</artifactId>
-				<version>1.40</version>
+				<version>1.47</version>
 				<configuration>
 					<localCheckout>true</localCheckout>
 					<pushChanges>false</pushChanges>
