@@ -13,7 +13,7 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>hospitalms</artifactId>
 
-	<version>0.6.x-SNAPSHOT</version>
+	<version>1.x-SNAPSHOT</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
@@ -124,9 +124,10 @@
 				<artifactId>git-timestamp-maven-plugin</artifactId>
 				<version>1.40</version>
 				<configuration>
-					<snapshotText>x-SNAPSHOT</snapshotText>
-					<releaseVersionFile>VERSION.txt</releaseVersionFile>
-					<tagNameFile>TAG_NAME.txt</tagNameFile>
+					<localCheckout>true</localCheckout>
+					<pushChanges>false</pushChanges>
+					<releaseVersion>1.${env.BUILD_NUMBER}</releaseVersion>
+					<developmentVersion>1.x-SNAPSHOT</developmentVersion>
 				</configuration>
 			</plugin>
 			<plugin>
