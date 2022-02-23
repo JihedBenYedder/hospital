@@ -56,6 +56,7 @@ public class HospitalService {
            data.setOccupiedBedsNumber(occupiedBeds);
            data.setOccupancyRate(occupancyRate);
            setHospitalData(data);
+           return null;
        });
     }
 
