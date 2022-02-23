@@ -120,68 +120,14 @@
 		<plugins>
 
 			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>dockerfile-maven-plugin</artifactId>
-				<version>1.4.2</version>
+				<groupId>com.github.stephenc.continuous</groupId>
+				<artifactId>git-timestamp-maven-plugin</artifactId>
+				<version>1.40</version>
 				<configuration>
-					<repository>117677030399.dkr.ecr.us-east-2.amazonaws.com/${project.artifactId}</repository>
-					<tag>${project.version}</tag>
-					<buildArgs>
-						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
-					</buildArgs>
-
+					<snapshotText>x-SNAPSHOT</snapshotText>
+					<releaseVersionFile>VERSION.txt</releaseVersionFile>
+					<tagNameFile>TAG_NAME.txt</tagNameFile>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.codehaus.plexus</groupId>
-						<artifactId>plexus-archiver</artifactId>
-						<version>3.4</version>
-					</dependency>
-					<dependency>
-						<groupId>com.sun.activation</groupId>
-						<artifactId>javax.activation</artifactId>
-						<version>1.2.0</version>
-					</dependency>
-				</dependencies>
-				<executions>
-					<execution>
-						<id>default</id>
-						<goals>
-							<goal>build</goal>
-							<goal>push</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>tag-latest</id>
-						<phase>none</phase>
-						<goals>
-							<goal>tag</goal>
-						</goals>
-						<configuration>
-							<tag>latest</tag>
-						</configuration>
-					</execution>
-					<execution>
-						<id>push-latest</id>
-						<phase>none</phase>
-						<goals>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<tag>latest</tag>
-						</configuration>
-					</execution>
-					<execution>
-						<id>push-version</id>
-						<phase>none</phase>
-						<goals>
-							<goal>push</goal>
-						</goals>
-						<configuration>
-							<tag>${project.version}</tag>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
