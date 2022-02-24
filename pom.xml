@@ -124,10 +124,6 @@
 	<build>
 		<plugins>
 			<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-			<plugin>
 				<groupId>com.github.stephenc.continuous</groupId>
 				<artifactId>git-timestamp-maven-plugin</artifactId>
 				<version>1.47</version>
