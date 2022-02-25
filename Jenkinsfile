@@ -1,2 +1,4 @@
 @Library('SharedLib') _
-alphaBuild(docker_registry_url: 'https://117677030399.dkr.ecr.us-east-2.amazonaws.com/encryptionservice')
+alphaBuild(dockerRegistryUrl: 'https://117677030399.dkr.ecr.us-east-2.amazonaws.com/hospitalms',
+scmProjectUrl: 'https://github.com/JihedBenYedder/hospitalms.git',
+projectName: 'hospital')
