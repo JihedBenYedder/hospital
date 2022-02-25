@@ -13,7 +13,7 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>hospitalms</artifactId>
 
-	<version>1.x-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>hospital</name>
 	<description>Hospital Management MS</description>
 	<developers>
