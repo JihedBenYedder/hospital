@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: 117677030399.dkr.ecr.us-east-2.amazonaws.com/hospitalms
+  repository: 194341177395.dkr.ecr.us-east-1.amazonaws.com/hospitalms
   tag: latest
   pullPolicy: IfNotPresent
 
