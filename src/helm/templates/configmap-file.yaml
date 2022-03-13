@@ -36,6 +36,8 @@ data:
       password: {{ .Values.redis.password }}
     
     spring:
+      redis:
+        ssl: true
       kafka:
         consumer:
           bootstrap-servers: my-cluster-kafka-bootstrap.vadal:9092
