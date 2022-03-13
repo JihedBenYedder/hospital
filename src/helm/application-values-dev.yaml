@@ -36,10 +36,10 @@ resources:
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   limits:
-    cpu: 500m
+    cpu: 250m
     memory: 500Mi
   requests:
-    cpu: 500m
+    cpu: 250m
     memory: 500Mi
 
 autoscaling:
@@ -56,7 +56,7 @@ tolerations: []
 affinity: {}
 
 redis:
-  host: master.e-dd-redis.5rt8fc.use1.cache.amazonaws.com
+  host: e-dd-redis-001.e-dd-redis.5rt8fc.use1.cache.amazonaws.com
   password: ${vault:secret/data/dev/redis/password#REDIS_SECRET_PASSWORD_DEV}
 
 java_opts: -Dspring.config.location=/opt/config/application.yml
